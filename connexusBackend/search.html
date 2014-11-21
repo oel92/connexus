@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+{%autoescape true%}
+<html>
+<head>
+  
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
+  <link type="text/css" rel="stylesheet" href="cssBoot/bootstrap.min.css" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+	
+  
+  <script>
+	$(function() {
+    		var cache = {};
+    		$( "#auto" ).autocomplete({
+      			minLength: 1,
+      			source: function( request, response ) {
+        			var term = request.term;
+       				if ( term in cache ) {
+         				response( cache[ term ] );
+          				return;
+       		 		}
+
+				var url = "/complete?search=" + term;	
+ 				  
+      				$.getJSON( url, request, function( data, status, xhr ) {
+						       				
+					cache[ term ] = data;
+         		 		response( data );
+					
+       		 		});
+      			}
+			
+    		});
+  	});
+  </script>
+</head>
+  <body>
+     <div class="navbar navbar-inverse " style="height:70px;border-radius: 0;" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          
+          <div class="navbar-brand" style="margin-left: -60px;font-size: xx-large;margin-top: 10px;">Connex.us</div>
+        </div>
+        
+      </div>
+    </div>
+	 <div class="navbar navbar-default" role="navigation" style="margin-top: -20px;">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+           
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="/manage">Manage</a></li>
+              <li><a href="/create">Create</a></li>
+              <li><a href="/view">View</a></li>
+              <li class = "active"><a href="/search">Search</a></li>
+	      <li><a href="/trending">Trending</a></li>
+            </ul>
+           
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+
+	<div class="jumbotron">
+
+	
+	<div style="margin-left: 15px;margin-top: -15px;font-size: 25px;">
+		<form name="input" action="" method="get">
+			
+			<input class = "form-control" style= "width:200px;float:left;"type="text" name="search" id="auto">
+			
+			<button class="btn btn-success" type="submit" name="button" value="search" style="margin-left:20px;">Search</button>
+			<button class = "btn btn-info" type="submit" name="button" value="rebuild">Rebuild completion index</button>
+			
+		</form>
+		
+		
+	</div>
+	
+	{% if search_done %}
+		<tr>
+		{% set count = 0 %}
+		<br><p style="font-size: medium;margin-left:20px;">{{result_streams|length}} results for {{search_text}},<br> click on an image to view stream</p>
+		{% for stream in result_streams %}
+			<form action="/streamview" method="get" style="margin-top: 25px;margin-left:20px"><figure>
+				<input type="image" src="{{ stream.cover }}" title={{ stream.name }} height="200" width="200";"><figcaption style = "text-align: center; background-color: #eee;position: relative; width:200px; ">{{stream.name}}</figcaption></figure>
+				<input type="hidden" name="stream_key" value={{ stream.key.urlsafe() }}> 
+			</form>
+			
+			
+		{% endfor %}
+		</tr>
+	{% endif %}
+</div>
+  </body>
+</html>
+
+{% endautoescape %}

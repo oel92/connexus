@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+{%autoescape true%}
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="stylesheets/main.css" />
+</head>
+  <body>
+    <h1> Connex.us </h1>
+   	 <table rules="cols" style="margin-top: -20px;">
+		
+ 		<tr>
+    			<th><a href = "/manage" style="color:#000080; text-decoration:none" method="get">Manage</th>
+    			<th><a href ="/create"  style="color: #000080; text-decoration:none" method="get">Create</th>		
+    			<th style="width: 60px"><a href="/view" style="color: #000080; text-decoration:none" method="get">View</th>
+			<th><a href = "search.html" style="color: #000080; text-decoration:none">Search</th>
+    			<th style = "width: 80px;"><a href = "trending.html" style="color: #000080; text-decoration:none">Trending</h>		
+    			<th><a href = "social.html" style="color: #000080; text-decoration:none">Social</th>	
+  		</tr>
+   	 </table>
+
+
+	<div style="height: 275px;">
+
+	<table style="margin-top: 2.4%; font-size: 15px;">
+		
+ 		<tr>
+		
+		</tr>
+		
+   	 </table>
+	</div>
+
+	<div style="border: 2px solid;width: 350px;height: 115px;margin-left: 10px;">
+		
+		<form style = "margin-top:10px; margin-left:3px;"action="%s" method="POST" enctype="multipart/form-data">
+			<input type="text" name="fileName" style="height:20px; width:100px; margin-left: 3px" placeholder= "File Name">
+			<input type="text" name="comments" style="height:20px; width:200px; margin-left: 8px;" placeholder="Comments">
+			<input type="file" name="file" style="margin-top:10px;"><br> <input type="submit" name="submit" value="Upload" style="margin-top:10px; ">
+		</form>
+
+	
+	</div>
+  </body>
+</html>
+
+{% endautoescape %}

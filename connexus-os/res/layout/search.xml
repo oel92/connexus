@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_x="26dp"
+        android:layout_y="22dp"
+        android:ems="10"
+        android:hint="Find streams" />
+
+    <Button
+        android:id="@+id/search"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="26dp"
+        android:layout_y="66dp"
+        android:onClick="search"
+        android:text="Search" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="62dp"
+        android:layout_y="150dp"
+        android:text="click on an image to view stream"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="119dp"
+        android:layout_y="129dp"
+        android:text="results for "
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/button1"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="27dp"
+        android:layout_y="372dp"
+        android:text="More search results" />
+
+    <ImageButton
+        android:id="@+id/image1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="47dp"
+        android:layout_y="202dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/abc_ab_bottom_transparent_dark_holo"
+        android:onClick="search1"/>
+
+    <ImageButton
+        android:id="@+id/image5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="48dp"
+        android:layout_y="264dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/abc_ab_bottom_transparent_dark_holo"
+        android:onClick="search5"/>
+
+    <ImageButton
+        android:id="@+id/image6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="110dp"
+        android:layout_y="264dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/abc_ab_bottom_transparent_dark_holo"
+        android:onClick="search6"/>
+
+    <ImageButton
+        android:id="@+id/image2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="110dp"
+        android:layout_y="202dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/abc_ab_bottom_transparent_dark_holo"
+        android:onClick="search2"/>
+
+    <ImageButton
+        android:id="@+id/image7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="172dp"
+        android:layout_y="264dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/abc_ab_bottom_transparent_dark_holo"
+        android:onClick="search7"/>
+
+    <ImageButton
+        android:id="@+id/image3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="174dp"
+        android:layout_y="202dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/abc_ab_bottom_transparent_dark_holo"
+        android:onClick="search3"/>
+
+    <ImageButton
+        android:id="@+id/image8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="234dp"
+        android:layout_y="264dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/abc_ab_bottom_transparent_dark_holo"
+        android:onClick="search8"/>
+
+    <ImageButton
+        android:id="@+id/image4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="235dp"
+        android:layout_y="201dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/abc_ab_bottom_transparent_dark_holo"
+        android:onClick="search4"/>
+
+    <TextView
+        android:id="@+id/numResults"
+        android:layout_width="38dp"
+        android:layout_height="wrap_content"
+        android:layout_x="86dp"
+        android:layout_y="130dp"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/searchText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="190dp"
+        android:layout_y="129dp"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</AbsoluteLayout>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+{%autoescape true%}
+<html>
+<head>
+ <link type="text/css" rel="stylesheet" href="cssBoot/bootstrap.min.css" />
+</head>
+  <body>
+    <div class="navbar navbar-inverse " style="height:70px;border-radius: 0;" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          
+          <div class="navbar-brand" style="margin-left: -60px;font-size: xx-large;margin-top: 10px;">Connex.us</div>
+        </div>
+        <form class="navbar-form navbar-right" role="form">
+    
+            <a href={{ url }} style="text-decoration:none; color:white; margin-top:10px;" class="btn btn-success">{{ url_linktext }}</a>
+          </form>
+      </div>
+    </div>
+	 <div class="navbar navbar-default" role="navigation" style="margin-top: -20px;">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+           
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="/manage">Manage</a></li>
+              <li><a href="/create">Create</a></li>
+              <li><a href="/view">View</a></li>
+              <li><a href="/search">Search</a></li>
+	      <li  class = "active"><a href="/trending">Trending</a></li>
+            </ul>
+           
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+
+	<div class="jumbotron">
+	
+	<div style="margin-left: 15px;margin-top: -15px;font-size: 25px;">Top 3 Trending Streams</div>
+	<div style="width: 100%;overflow:hidden;">	
+	
+		<div style="margin-left: 50px; width:70%; float:left;">
+
+			<table style="margin-top: 2.4%; font-size: 15px;">
+		
+ 				<tr>
+				<br>
+				{% for stream in top_streams %}
+					
+					<form action="/streamview" method="get" style="margin-top: 45px;">
+					<figure style="float:left;">
+						<input type="image" src="{{ stream.cover }}" title={{ stream.name }} height = "200" width="200" style="margin-left:20px;">
+							<figcaption style = "text-align: center; background-color: #eee;position: relative; width:200px; margin-left:20px;">{{stream.name}}</figcaption>
+						<input type="hidden" name="stream_key" value={{ stream.key.urlsafe() }}> 
+						<figcaption style = "text-align: center; background-color: #eee;position: relative; width:200px; margin-left:20px;">{{ stream.last_hour_views }} view(s) in the last hour</figcaption>
+					</figure>
+					</form>
+				{% endfor %}
+				</tr>
+				
+   			 </table>
+		</div>
+		<div style="margin-left:20px; margin-top:2.4%; width:15%; float:left;">
+			<form action="/trending" method="post">
+				<input type="radio" name="rate" value="zero" {{ zero }} >  No reports<br>
+				<input type="radio" name="rate" value="five" {{ five }} >  Every 5 minutes<br>
+				<input type="radio" name="rate" value="hour" {{ hour }} >  Every 1 hour<br>
+				<input type="radio" name="rate" value="day"  {{ day  }} >  Every day<br><br>
+				Email trending report<br><br>
+				<input class="btn brn-success" type="submit" value="Update rate">
+			</form>
+			
+		</div>
+	</div>
+</div>
+	
+  </body>
+</html>
+
+{% endautoescape %}

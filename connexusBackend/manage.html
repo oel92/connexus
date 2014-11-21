@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+{%autoescape true%}
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="cssBoot/bootstrap.min.css" />
+</head>
+  <body>
+    <div class="navbar navbar-inverse " style="height:70px;border-radius: 0;" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          
+          <div class="navbar-brand" style="margin-left: -60px;font-size: xx-large;margin-top: 10px;">Connex.us</div>
+        </div>
+        <form class="navbar-form navbar-right" role="form">
+    
+          <a href={{ url }} style="text-decoration:none; color:white; margin-top:10px;" class="btn btn-success">{{ url_linktext }}</a>
+          </form>
+      </div>
+    </div>
+	 <div class="navbar navbar-default" role="navigation" style="margin-top: -20px;">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+           
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="">Manage</a></li>
+              <li><a href="/create">Create</a></li>
+              <li><a href="/view">View</a></li>
+              <li><a href="/search">Search</a></li>
+	      <li><a href="/trending">Trending</a></li>
+            </ul>
+           
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+   	
+	 
+	<div class="jumbotron">
+	<div class = "streams"><h2 style = "margin-top:-20px;">Streams I own</h2>
+		
+
+	<table rules="cols" style="margin-top: 1%; font-size: 15px; float:left;">
+		
+ 		<tr>
+    			<td style="width:200px;"><b>Name</b></td>
+    			<td style="width:125px;"><b>Last New<br>Picture</b></td>		
+    			<td style="width:175px;"><b>Number of<br>Pictures</b></td>
+				<td></td>
+    				
+  		</tr>
+		{% for stream in owned_streams %}
+		<tr>
+			<form id="form" action="/streamview" method="get">
+				<td style="width:200px;">
+					<button type="submit"  style="border:0;background-color:transparent;color: blue; text-decoration:underline; cursor:pointer;" >{{ stream.name }}</button>
+				
+					<input type="hidden" name="stream_key" value={{ stream.key.urlsafe() }}> 
+				</td>
+    			<td style="width:125px;">{{ stream.date_only_updated }}</td>		
+    			<td style="width:175px;">{{ stream.num_pics }} </td>
+			</form>
+		</tr>
+		{% endfor %}
+   	 </table>
+	 
+	<form action="/manage" method="post">	 
+		<table rules="cols" style="margin-top: 25px; font-size: 15px;">
+			<tr><td><b>Delete</b><br></br></td></tr>
+			{% for stream in owned_streams %}
+			<tr>
+				<td><input type="checkbox" name="delete" align="middle" value = {{ stream.key.urlsafe() }}>
+			</tr>
+			{% endfor %}
+		</table>
+		<br>
+		<button type="submit" class="btn btn-danger" name = "button" value = "delete_clicked">Delete Checked</button>
+  		<br><br>
+	</form>	 
+	</div>
+
+	<div class = "streams"><h2 style="margin-bottom:0px">Streams I subscribe to</h2>
+
+	<table rules="cols" style="margin-top: 2.4%; font-size: 15px; float:left;">
+ 		<tr>
+    			<td style="width:200px;"><b>Name</b></td>
+    			<td style="width:100px;"><b>Last New<br>Picture</b></td>		
+    			<td style="width:110px;"><b>Number of<br>Pictures</b></td>
+				<td style="width: 70px;"><b>Views</b></td>
+				<td></td>
+    				
+  		</tr>
+		{% for stream in subscribe_streams %}
+		<tr>
+			<form id="form" action="/streamview" method="get">
+				<td style="width:200px;">
+					<button type="submit"  style="border:0;background-color:transparent;color: blue; text-decoration:underline; cursor:pointer;" >{{ stream.name }}</button>
+					<input type="hidden" name="stream_key" value={{ stream.key.urlsafe() }}> 
+				</td>
+    			<td style="width:125px;">{{ stream.date_only_updated }}</td>		
+    			<td style="width:175px;">{{ stream.num_pics }} </td>
+				<td style="width:175px;">{{ stream.viewcount }} </td>
+			</form>
+		</tr>
+		{% endfor %}
+   	 </table>
+	<form action="/manage" method="post">
+		<table rules="cols" style="margin-top: 50px; font-size: 15px;">
+			<tr><td><b>Unsubscribe</b></br></td></tr>
+			{% for stream in subscribe_streams %}
+			<tr>
+				
+				<td><input type="checkbox" name="unsubscribe" align="middle" value={{ stream.key.urlsafe() }}>
+			</tr>
+			{% endfor %}
+		</table>
+		<br><br>
+  		<button type="submit" class="btn btn-danger" name="button" value="unsub_clicked">Unsubscribe Checked Streams</button>
+	</form>
+	</div>
+	
+</div>
+	
+  </body>
+</html>
+
+{% endautoescape %}
+
+

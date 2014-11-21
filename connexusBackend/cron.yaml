@@ -1,0 +1,4 @@
+cron:
+- description: Get trending streams and send emails every five minutes
+  url: /cron
+  schedule: every 5 minutes

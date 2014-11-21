@@ -1,0 +1,40 @@
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+p{
+	font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+   font-size:-webkit-xxx-large;
+   margin-top: 25px;
+   margin-left: 10px
+}
+
+title{
+	font-size: -webkit-xxx-large;
+font-weight: bold;
+font-family: arial;
+}
+
+th{
+	font-weight:normal;
+	width: 70px;
+}
+
+td{
+	font-weight:normal;
+}
+
+.streams{
+	margin-top: 1.5%;
+margin-left: 1%;
+font-size: 20px;
+font-weight: bold;
+}
+
+.createLeft{
+	width: 25%;
+	float:left;	
+}

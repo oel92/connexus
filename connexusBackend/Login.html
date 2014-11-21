@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+{%autoescape true%}
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="cssBoot/bootstrap.min.css" />
+</head>
+  <body>
+   <div class="navbar navbar-inverse navbar-fixed-top" style="height:70px;" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          
+          <div class="navbar-brand" style="margin-left: -60px;font-size: xx-large;margin-top: 10px;">Connex.us</div>
+        </div>
+        
+      </div>
+    </div>
+    <div class="jumbotron" style = "margin-top:30px;">
+        <h1>Welcome to Connex.us!</h1>
+        <p>Share the world!</p>
+        <p><a href="{{ url }}" class="btn btn-primary btn-lg" role="button">{{ url_linktext }}</a></p>
+      </div>
+    <!-- <form style="margin-top: -15px;" action="/manage" method="get">
+	<input type="text" name="user" placeholder = "Gmail UserID" style="margin-left: 12px;"><br><br>
+	<input type="text" name="pword" placeholder = "Gmail Password" style="margin-left: 12px;"><br><br>
+	<button type="submit" style="width: 60px;height: 30px;margin-left: 12px;font-size:15px;">Login</button> -->
+	
+   </form>
+ 
+
+  </body>
+</html>
+{% endautoescape %}

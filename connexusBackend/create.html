@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+{%autoescape true%}
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="cssBoot/bootstrap.min.css" />
+</head>
+  <body>
+     <div class="navbar navbar-inverse " style="height:70px;border-radius: 0;" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          
+          <div class="navbar-brand" style="margin-left: -60px;font-size: xx-large;margin-top: 10px;">Connex.us</div>
+        </div>
+        
+      </div>
+    </div>
+	 <div class="navbar navbar-default" role="navigation" style="margin-top: -20px;">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+           
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="/manage">Manage</a></li>
+              <li class = "active"><a href="/create">Create</a></li>
+              <li><a href="/view">View</a></li>
+              <li><a href="/search">Search</a></li>
+	      <li><a href="/trending">Trending</a></li>
+            </ul>
+           
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+    
+	 <div class="jumbotron">
+	<form action="/create" method="post" style="margin-top: 0px;">
+		<div style ="width: 100%; overflow: hidden">
+			<div class = "col-md-4">
+				<input type="text" name="stream_title" style="height:20px; width:230px; margin-left: 12px;">
+	
+				<p style="margin-left: 12px; margin-top: 10px; font-size: 20px;">Name your stream</p>
+				<TEXTAREA NAME="subscribers" ROWS=3 COLS=30 style="margin-left:12px; resize:none;" placeholder="Enter subscriber e-mails"></TEXTAREA><br>
+				<TEXTAREA NAME="message" ROWS=3 COLS=30 style="margin-left:12px;resize:none;" placeholder="Optional message for invite"></TEXTAREA>
+				<p style="margin-left: 12px; margin-top: 5px; font-size: 20px;">Add subscribers</p>	
+
+				<br>
+				<button class="btn btn-success" type="submit" style = "margin-left:10px;">Create Stream</button>
+			
+			</div>
+			<div class = "col-md-4" style="margin-top:-40px;">
+				<TEXTAREA NAME="streamtags" ROWS=3 COLS=40 style="margin-left:12px; margin-top: 45px;resize:none;" placeholder="Enter hashtags"></TEXTAREA><br>
+				<p style="margin-left: 12px; margin-top: 5px; font-size: 20px;">Tag your stream</p>
+				<TEXTAREA NAME="imageURL" ROWS=3 COLS=30 style="margin-left:12px;resize:none;" placeholder="Enter URL here"></TEXTAREA>
+				<p style="margin-left: 12px; margin-top: 5px; font-size: 20px;">URL to cover image</p>
+			</div>
+		</div>
+	</form>
+	</div>
+	
+
+  </body>
+</html>
+
+{% endautoescape %}
+
